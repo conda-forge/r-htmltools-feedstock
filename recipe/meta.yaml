@@ -1,4 +1,4 @@
-{% set version = '0.4.0' %}
+{% set version = "0.5.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/htmltools_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/htmltools/htmltools_{{ version }}.tar.gz
-  sha256: 5b18552e1183b1b90b5cca8e7f95b57e8124c9d517b22aa64783b829513b811a
+  sha256: ff0a2ce3d4afd7758db1b2fae33e4f6321c6e359f4dbd6862936ead295fdd21d
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -32,13 +32,13 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
-    - r-rcpp
+    - r-base64enc
     - r-digest
     - r-rlang
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-rcpp
+    - r-base64enc
     - r-digest
     - r-rlang
 
@@ -49,10 +49,11 @@ test:
 
 about:
   home: https://github.com/rstudio/htmltools
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: Tools for HTML generation and output.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
