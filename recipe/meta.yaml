@@ -32,13 +32,13 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
-    - r-rcpp
+    - r-base64enc
     - r-digest
     - r-rlang
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-rcpp
+    - r-base64enc
     - r-digest
     - r-rlang
 
@@ -49,10 +49,11 @@ test:
 
 about:
   home: https://github.com/rstudio/htmltools
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: Tools for HTML generation and output.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
