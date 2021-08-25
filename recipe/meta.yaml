@@ -38,13 +38,15 @@ requirements:
     - r-base
     - r-base64enc
     - r-digest
-    - r-rlang
+    - r-fastmap
+    - r-rlang >=0.4.10
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-base64enc
     - r-digest
-    - r-rlang
+    - r-fastmap
+    - r-rlang >=0.4.10
 
 test:
   commands:
