@@ -23,6 +23,7 @@ requirements:
   build:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - r-base64enc                # [build_platform != target_platform]
+    - r-fastmap                  # [build_platform != target_platform]
     - r-rlang                    # [build_platform != target_platform]
     - r-digest                   # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
