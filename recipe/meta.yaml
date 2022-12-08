@@ -1,4 +1,4 @@
-{% set version = "0.5.3" %}
+{% set version = "0.5.4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/htmltools_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/htmltools/htmltools_{{ version }}.tar.gz
-  sha256: 2c451b369ea8918358e2b280f548816664fe0143222c609e6bfb1f9cd2f7324f
+  sha256: 008228a8690d39d8ae2716bc614e76337fdbe2bac4e96258c10245fdf24f327e
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,9 +23,10 @@ requirements:
   build:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - r-base64enc                # [build_platform != target_platform]
+    - r-digest                   # [build_platform != target_platform]
+    - r-ellipsis                 # [build_platform != target_platform]
     - r-fastmap                  # [build_platform != target_platform]
     - r-rlang                    # [build_platform != target_platform]
-    - r-digest                   # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('cxx') }}            # [not win]
@@ -39,14 +40,16 @@ requirements:
     - r-base
     - r-base64enc
     - r-digest
-    - r-fastmap
+    - r-ellipsis
+    - r-fastmap >=1.1.0
     - r-rlang >=0.4.10
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-base64enc
     - r-digest
-    - r-fastmap
+    - r-ellipsis
+    - r-fastmap >=1.1.0
     - r-rlang >=0.4.10
 
 test:
@@ -65,26 +68,3 @@ about:
 extra:
   recipe-maintainers:
     - conda-forge/r
-
-# Package: htmltools
-# Type: Package
-# Title: Tools for HTML
-# Version: 0.4.0
-# Author: RStudio, Inc.
-# Maintainer: Joe Cheng <joe@rstudio.com>
-# Description: Tools for HTML generation and output.
-# Depends: R (>= 2.14.1)
-# Imports: utils, digest, Rcpp, rlang
-# Suggests: markdown, testthat, withr
-# Enhances: knitr
-# License: GPL (>= 2)
-# URL: https://github.com/rstudio/htmltools
-# BugReports: https://github.com/rstudio/htmltools/issues
-# RoxygenNote: 6.1.1
-# LinkingTo: Rcpp
-# Encoding: UTF-8
-# Collate: 'RcppExports.R' 'html_dependency.R' 'html_escape.R' 'html_print.R' 'shim.R' 'utils.R' 'tags.R' 'template.R'
-# NeedsCompilation: yes
-# Packaged: 2019-10-04 17:43:48 UTC; jcheng
-# Repository: CRAN
-# Date/Publication: 2019-10-04 23:00:08 UTC
