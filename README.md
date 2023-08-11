@@ -3,6 +3,7 @@ About r-htmltools-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-htmltools-feedstock/blob/main/LICENSE.txt)
 
+
 About r-htmltools
 -----------------
 
@@ -11,6 +12,7 @@ Home: https://github.com/rstudio/htmltools
 Package license: GPL-2.0-or-later
 
 Summary: Tools for HTML generation and output.
+
 About r-htmltools
 -----------------
 
