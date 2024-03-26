@@ -1,4 +1,4 @@
-{% set version = "0.5.7" %}
+{% set version = "0.5.8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/htmltools_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/htmltools/htmltools_{{ version }}.tar.gz
-  sha256: ecb0d82619063f49e4d001c44fcc1b811a06928fd66c2bb8c86632798d98b386
+  sha256: 369ceb18ce8d0b9595dd6f466fd482ad7189a0dfa55e05a370cbe1f4eff3e695
 
 build:
   merge_build_host: true  # [win]
