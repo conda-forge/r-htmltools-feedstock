@@ -1,4 +1,4 @@
-{% set version = "0.5.8.1" %}
+{% set version = "0.5.9" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/htmltools_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/htmltools/htmltools_{{ version }}.tar.gz
-  sha256: f9f62293ec06c353c4584db6ccedb06a2da12e485208bd26b856f17dd013f176
+  sha256: 19308618da485818f69dcfeeadd2ddc81d43a736a74519df7b3fd98e13128afd
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
